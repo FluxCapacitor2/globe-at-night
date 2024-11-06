@@ -5,8 +5,12 @@ import earthFromSpace from "/nasa-Q1p7bh3SHj8-unsplash.jpg?url";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: "Globe At Night" },
+    {
+      name: "description",
+      content:
+        "An unofficial website with data visualizations from Globe At Night, a citizen science project dedicated to mapping light pollution. ",
+    },
   ];
 };
 
