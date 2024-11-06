@@ -22,6 +22,7 @@ If I were to scale this website to a substantial number of visitors, I would pre
 
 - Planet texture: https://planetpixelemporium.com/earth8081.html
 - NASA (via Unsplash): https://unsplash.com/photos/photo-of-outer-space-Q1p7bh3SHj8
+- Des Récits (via Unsplash): https://unsplash.com/photos/photo-of-mountain-with-trees-during-night-2O18Tz8QidM
 - Favicon: https://globeatnight.org/static/images/favicon.ico
 
 ## Fonts
