@@ -14,14 +14,21 @@
     "@remix-run/node": "^2.13.1",
     "@remix-run/react": "^2.13.1",
     "@remix-run/serve": "^2.13.1",
+    "@sqlite.org/sqlite-wasm": "^3.47.0-build1",
+    "d3": "^7.9.0",
     "isbot": "^4.1.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-globe.gl": "^2.27.4",
+    "remix-utils": "^7.7.0",
+    "sql.js": "^1.12.0"
   },
   "devDependencies": {
     "@remix-run/dev": "^2.13.1",
+    "@types/d3": "^7.4.3",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
+    "@types/sql.js": "^1.4.9",
     "@typescript-eslint/eslint-plugin": "^6.7.4",
     "@typescript-eslint/parser": "^6.7.4",
     "autoprefixer": "^10.4.19",
