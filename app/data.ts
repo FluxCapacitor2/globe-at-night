@@ -1,4 +1,5 @@
 import initSqlJs from "sql.js";
+import databaseURL from "/data.db?url";
 
 export async function getObservations() {
   const SQL = await initSqlJs({
@@ -8,7 +9,7 @@ export async function getObservations() {
     },
   });
 
-  const data = await (await fetch("/data.db")).arrayBuffer();
+  const data = await (await fetch(databaseURL)).arrayBuffer();
   const db = new SQL.Database(new Uint8Array(data));
 
   const res = db.exec(
