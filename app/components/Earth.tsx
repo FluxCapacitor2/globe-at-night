@@ -18,7 +18,7 @@ export default ({ data }: { data: any }) => {
 
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const width = useMemo(
-    () => (screenWidth < 640 ? screenWidth : screenWidth / 2),
+    () => (screenWidth < 1024 ? screenWidth : screenWidth / 2),
     [screenWidth]
   );
 

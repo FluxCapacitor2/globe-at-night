@@ -22,9 +22,14 @@ export default function Index() {
   return (
     <>
       <section className="h-screen relative overflow-hidden">
-        <img src={earthFromSpace} className="absolute inset-0 object-cover" />
-        <div className="absolute inset-0 bottom-2/3 flex items-center justify-center flex-col gap-4 p-8">
-          <h1 className="text-white text-9xl font-black">Globe At Night</h1>
+        <img
+          src={earthFromSpace}
+          className="absolute inset-0 h-full object-cover max-sm:brightness-50"
+        />
+        <div className="absolute inset-0 sm:bottom-2/3 flex items-center justify-center flex-col gap-4 p-8">
+          <h1 className="text-white text-6xl sm:text-7xl md:text-9xl font-black">
+            Globe At Night
+          </h1>
           <p className="max-w-prose text-balance text-center">
             A citizen science project mapping light pollution across the globe.
             View the project's official website{" "}
@@ -48,7 +53,7 @@ export default function Index() {
         </div>
       </section>
       <section className="flex h-screen items-center justify-center">
-        <div className="grid grid-cols-2">
+        <div className="grid lg:grid-cols-2">
           <div className="px-16">
             <h2 className="text-6xl font-bold">Explore the Data</h2>
             <p>
@@ -56,15 +61,17 @@ export default function Index() {
               pollution observations.
             </p>
             <p>
-              The globe to the right displays a random sample of observations.
-              Drag to pan the camera, and pinch or scroll to zoom.
+              The globe <span className="hidden lg:inline">to the right</span>
+              <span className="lg:hidden">below</span> displays a random sample
+              of observations. Drag to pan the camera, and pinch or scroll to
+              zoom.
             </p>
           </div>
           <div>{obs ? <Earth data={obs} /> : <p>Loading...</p>}</div>
         </div>
       </section>
       <section className="flex h-screen items-center justify-center">
-        <div className="grid grid-cols-2">
+        <div className="grid md:grid-cols-2">
           <div className="px-16">
             <h2 className="text-6xl font-bold">
               Why is Minimizing Light Pollution Important?
