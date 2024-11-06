@@ -28,7 +28,7 @@ export default function Index() {
       <section className="h-screen relative overflow-hidden">
         <img
           src={earthFromSpace}
-          className="absolute inset-0 h-full object-cover max-sm:brightness-50"
+          className="absolute inset-0 w-full h-full object-cover max-sm:brightness-50"
         />
         <div className="absolute inset-0 sm:bottom-2/3 flex items-center justify-center flex-col gap-4 p-8">
           <h1 className="text-white text-center md:text-start text-6xl sm:text-7xl md:text-9xl font-black">
