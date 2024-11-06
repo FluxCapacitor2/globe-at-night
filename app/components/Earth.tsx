@@ -1,25 +1,38 @@
+import { useEffect, useMemo, useState } from "react";
 import Globe from "react-globe.gl";
 
 export default ({ data }: { data: any }) => {
-  const processed = (data[0].values as any[]).map((row: any) => ({
-    id: row[0],
-    lat: row[1],
-    lng: row[2],
-    weight: parseInt(row[3]),
-  }));
-
-  let max = 0;
-  for (const row of processed) {
-    if (row.weight > max) {
-      max = row.weight;
-    }
-  }
+  const processed = useMemo(
+    () =>
+      (data[0].values as any[]).map((row: any) => ({
+        id: row[0],
+        lat: row[1],
+        lng: row[2],
+        weight: parseInt(row[3]),
+      })),
+    [data]
+  );
 
   // const weightColor = scaleSequentialSqrt(interpolateYlOrRd).domain([0, 7]);
 
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const width = useMemo(
+    () => (screenWidth < 640 ? screenWidth : screenWidth / 2),
+    [screenWidth]
+  );
+
+  useEffect(() => {
+    const listener = () => {
+      setScreenWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", listener);
+    return () => window.removeEventListener("resize", listener);
+  }, []);
+
   return (
     <Globe
-      globeImageUrl="https://unpkg.com/three-globe@2.34.4/example/img/earth-night.jpg"
+      width={width}
+      globeImageUrl="/earthmap4k.jpg"
       heatmapsData={[processed]}
       heatmapPointLat="lat"
       heatmapPointLng="lng"
@@ -29,6 +42,8 @@ export default ({ data }: { data: any }) => {
       heatmapBandwidth={0.9}
       heatmapColorSaturation={1.0}
       enablePointerInteraction={false}
+      waitForGlobeReady={false}
+      animateIn={false}
 
       // hexBinPointsData={processed}
       // hexBinPointWeight="weight"

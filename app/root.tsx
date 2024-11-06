@@ -7,6 +7,7 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
+import spaceGrotesk from "@fontsource-variable/space-grotesk?url";
 import tailwind from "./tailwind.css?url";
 
 export const links: LinksFunction = () => [
@@ -23,6 +24,10 @@ export const links: LinksFunction = () => [
   {
     rel: "stylesheet",
     href: tailwind,
+  },
+  {
+    rel: "stylesheet",
+    href: spaceGrotesk,
   },
 ];
 

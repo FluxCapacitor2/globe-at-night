@@ -4,9 +4,20 @@
 
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
+  @apply bg-gray-950 scroll-smooth;
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
+  color-scheme: dark;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Space Grotesk Variable", sans-serif;
+}
+
+a {
+  @apply underline font-medium;
 }

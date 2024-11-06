@@ -13,7 +13,7 @@ export async function getObservations() {
   const db = new SQL.Database(new Uint8Array(data));
 
   const res = db.exec(
-    "select ID, Latitude, Longitude, LimitingMag from observations where ObsDateTime like '201%' and LimitingMag > 0 ORDER BY RANDOM() LIMIT 1000;"
+    "select ID, Latitude, Longitude, LimitingMag from observations where ObsDateTime like '201%' and LimitingMag > 0 ORDER BY RANDOM() LIMIT 500;"
   );
 
   return res;
