@@ -19,6 +19,7 @@ export default defineConfig({
         v3_singleFetch: true,
         v3_lazyRouteDiscovery: true,
       },
+      basename: process.env.CI ? "/globe-at-night" : "/",
     }),
     tsconfigPaths(),
   ],
@@ -28,4 +29,5 @@ export default defineConfig({
       "Cross-Origin-Embedder-Policy": "require-corp",
     },
   },
+  base: process.env.CI ? "/globe-at-night/" : "",
 });
