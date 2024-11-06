@@ -27,7 +27,7 @@ export default function Index() {
           className="absolute inset-0 h-full object-cover max-sm:brightness-50"
         />
         <div className="absolute inset-0 sm:bottom-2/3 flex items-center justify-center flex-col gap-4 p-8">
-          <h1 className="text-white text-6xl sm:text-7xl md:text-9xl font-black">
+          <h1 className="text-white text-center md:text-start text-6xl sm:text-7xl md:text-9xl font-black">
             Globe At Night
           </h1>
           <p className="max-w-prose text-balance text-center">
@@ -42,19 +42,17 @@ export default function Index() {
           </a>
         </div>
       </section>
-      <section className="h-screen relative overflow-hidden" id="intro">
+      <section id="intro" className="my-36 px-16">
         {/* <img src={earthFromSpace} className="absolute inset-0 object-cover" /> */}
-        <div className="absolute inset-0 bottom-2/3 flex justify-center flex-col gap-4 p-8">
-          <h1 className="text-white text-6xl font-bold">Citizen Science</h1>
-          <ul>
-            <li>What is citizen science?</li>
-            <li>How can I get involved?</li>
-          </ul>
-        </div>
+        <h1 className="text-white text-6xl font-bold">Citizen Science</h1>
+        <ul>
+          <li>What is citizen science?</li>
+          <li>How can I get involved?</li>
+        </ul>
       </section>
-      <section className="flex h-screen items-center justify-center">
+      <section className="flex min-h-screen items-center justify-center">
         <div className="grid lg:grid-cols-2">
-          <div className="px-16">
+          <div className="px-16 mb-16">
             <h2 className="text-6xl font-bold">Explore the Data</h2>
             <p>
               Over the past 18 years, contributors have submitted 291,306 light
@@ -67,24 +65,22 @@ export default function Index() {
               zoom.
             </p>
           </div>
-          <div>{obs ? <Earth data={obs} /> : <p>Loading...</p>}</div>
+          <div className="max-lg:mx-2 overflow-hidden">
+            {obs ? <Earth data={obs} /> : <p>Loading...</p>}
+          </div>
         </div>
       </section>
-      <section className="flex h-screen items-center justify-center">
-        <div className="grid md:grid-cols-2">
-          <div className="px-16">
-            <h2 className="text-6xl font-bold">
-              Why is Minimizing Light Pollution Important?
-            </h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Explicabo placeat quod similique. Dolorum laudantium quos
-              architecto vel velit quidem accusantium et placeat, aut laboriosam
-              modi aliquam autem quia? Odit, quas?
-            </p>
-          </div>
-          <div>(image here)</div>
-        </div>
+      <section className="grid md:grid-cols-2 px-16 my-36">
+        <h2 className="text-6xl font-bold mb-4">
+          Why is Minimizing Light Pollution Important?
+        </h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo
+          placeat quod similique. Dolorum laudantium quos architecto vel velit
+          quidem accusantium et placeat, aut laboriosam modi aliquam autem quia?
+          Odit, quas?
+        </p>
+        <div>(image here)</div>
       </section>
     </>
   );
