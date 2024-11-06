@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import Globe from "react-globe.gl";
+import globeTexture from "/earthmap4k.jpg?url";
 
 export default ({ data }: { data: any }) => {
   const processed = useMemo(
@@ -32,7 +33,7 @@ export default ({ data }: { data: any }) => {
   return (
     <Globe
       width={width}
-      globeImageUrl="/earthmap4k.jpg"
+      globeImageUrl={globeTexture}
       heatmapsData={[processed]}
       heatmapPointLat="lat"
       heatmapPointLng="lng"

@@ -1,3 +1,10 @@
+# Globe At Night
+
+An unofficial website with data visualizations from Globe At Night, a citizen science project dedicated to mapping light pollution.
+View Globe At Night's official website [here](https://globeatnight.org).
+
+# Acknowledgements
+
 ## Libraries and Data
 
 - Data: https://globeatnight.org/maps-data/
