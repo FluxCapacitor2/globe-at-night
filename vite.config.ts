@@ -29,5 +29,5 @@ export default defineConfig({
       "Cross-Origin-Embedder-Policy": "require-corp",
     },
   },
-  base: process.env.CI ? "/globe-at-night/" : "",
+  base: process.env.CI ? "/globe-at-night/" : "/",
 });

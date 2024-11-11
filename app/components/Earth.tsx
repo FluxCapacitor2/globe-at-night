@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import Globe from "react-globe.gl";
 import globeTexture from "/earthmap4k.jpg?url";
 
-export default ({ data }: { data: any }) => {
+export default ({ data, onReady }: { data: any; onReady?: () => void }) => {
   const processed = useMemo(
     () =>
       (data[0].values as any[]).map((row: any) => ({
@@ -43,8 +43,12 @@ export default ({ data }: { data: any }) => {
       heatmapBandwidth={0.9}
       heatmapColorSaturation={1.0}
       enablePointerInteraction={false}
-      waitForGlobeReady={false}
+      // waitForGlobeReady={false}
       animateIn={false}
+      onGlobeReady={() => {
+        console.log("Globe ready!");
+        onReady?.();
+      }}
 
       // hexBinPointsData={processed}
       // hexBinPointWeight="weight"

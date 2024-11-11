@@ -1,7 +1,8 @@
 import type { MetaFunction } from "@remix-run/node";
-import { lazy, useEffect, useState } from "react";
+import { lazy, useEffect, useState, type ReactNode } from "react";
 import { getObservations } from "~/data";
 import milkyWayFromEarth from "/des-recits-2O18Tz8QidM-unsplash.jpg?url";
+import globeVizPreview from "/globe-viz-preview.png?url";
 import earthFromSpace from "/nasa-Q1p7bh3SHj8-unsplash.jpg?url";
 
 export const meta: MetaFunction = () => {
@@ -18,12 +19,6 @@ export const meta: MetaFunction = () => {
 const Earth = lazy(async () => await import("~/components/Earth"));
 
 export default function Index() {
-  const [obs, setObs] = useState<any | undefined>();
-
-  useEffect(() => {
-    getObservations().then(setObs);
-  }, []);
-
   return (
     <>
       <section className="h-screen relative overflow-hidden">
@@ -119,7 +114,9 @@ export default function Index() {
             </p>
           </div>
           <div className="max-lg:mx-2 overflow-hidden">
-            {obs ? <Earth data={obs} /> : <p>Loading...</p>}
+            <EarthViz>
+              <img src={globeVizPreview} className="size-full object-cover" />
+            </EarthViz>
           </div>
         </div>
       </section>
@@ -147,5 +144,52 @@ export default function Index() {
         </a>
       </section>
     </>
+  );
+}
+
+function EarthViz({ children }: { children: ReactNode }) {
+  const [obs, setObs] = useState<any | undefined>();
+  const [load, setLoad] = useState(false);
+
+  useEffect(() => {
+    if (load && !obs) {
+      getObservations().then(setObs);
+    }
+  }, [load]);
+
+  const [ready, setReady] = useState(false);
+  console.log(ready);
+
+  return (
+    <div className="relative">
+      <div className={!ready ? "hidden" : undefined}>
+        {obs && <Earth data={obs} onReady={() => setReady(true)} />}
+      </div>
+      {(!load || !ready) && (
+        <div className="absolute inset-4 flex flex-col items-center justify-end">
+          <div className="bg-white text-black rounded-md p-4">
+            <p className="mb-2">
+              Loading this visualization will download a lot of data.
+            </p>
+            {!load ? (
+              <>
+                <button
+                  onClick={() => setLoad(true)}
+                  className="bg-blue-500 text-white rounded-md px-2 py-1 hover:bg-blue-600 transition-colors"
+                >
+                  Load Interactive Visualization
+                </button>
+              </>
+            ) : (
+              <p className="items-center">
+                <div className="inline-block border-t-blue-500 border-b-blue-500 border-transparent rounded-full animate-spin size-4 border-2 mr-2" />
+                Loading visualization...
+              </p>
+            )}
+          </div>
+        </div>
+      )}
+      {!ready ? children : null}
+    </div>
   );
 }
