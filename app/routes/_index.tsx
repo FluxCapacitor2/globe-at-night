@@ -1,5 +1,13 @@
 import type { MetaFunction } from "@remix-run/node";
+import { Link } from "@remix-run/react";
 import { lazy, useEffect, useState, type ReactNode } from "react";
+import {
+  MdCrueltyFree,
+  MdFlare,
+  MdGroups,
+  MdLight,
+  MdLightMode,
+} from "react-icons/md";
 import { getObservations } from "~/data";
 import milkyWayFromEarth from "/des-recits-2O18Tz8QidM-unsplash.jpg?url";
 import globeVizPreview from "/globe-viz-preview.png?url";
@@ -47,33 +55,92 @@ export default function Index() {
           src={milkyWayFromEarth}
           className="absolute inset-0 object-cover object-bottom size-full brightness-50"
         />
-        <div className="absolute inset-0 flex flex-col gap-4 max-w-prose mx-auto py-12">
+        <div className="absolute inset-0 flex flex-col gap-4 max-w-prose mx-auto py-24">
           <h1 className="text-white text-6xl font-bold">Light Pollution</h1>
-          <p>Points to cover here (expand and add images):</p>
-          <ul>
-            <li>
-              We used to be able to see the milky way on a clear day from
-              everywhere on Earth.
-            </li>
-            <li>
-              With the advent of the industrial revolution, people covered the
-              globe with lights.
-            </li>
-            <li>
-              Artificial lights can prevent us from seeing the wonder and beauty
-              of the universe from Earth.
-            </li>
-            <li>
-              Satellite constellations (like Starlink) also prevent astronomers
-              from making observations about the universe.
-            </li>
-            <li>
-              Light pollution works against astronomers, amateur and
-              professional, forcing them to travel to darker areas to do their
-              work.
-            </li>
-            <li>...</li>
-          </ul>
+          <h2 className="text-3xl font-medium mt-12">What is it?</h2>
+          <p>
+            Globe At Night defines light pollution as "excessive, misdirected,
+            or obtrusive artificial (usually outdoor) light."
+          </p>
+          <h2 className="text-3xl font-medium mt-12">What is its impact?</h2>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="flex flex-col justify-center">
+              <h3 className="font-bold text-lg">
+                <MdGroups className="inline -ml-2 mr-2" />
+                People
+              </h3>
+              <ul>
+                <li>
+                  Disrupts our circadian rhythms by halting melatonin production
+                </li>
+              </ul>
+            </div>
+            <div className="flex flex-col justify-center">
+              <h3 className="font-bold text-lg">
+                <MdCrueltyFree className="inline -ml-2 mr-2" />
+                Animals
+              </h3>
+              <ul>
+                <li>Confuses migratory patterns</li>
+                <li>Alters predator-prey relations</li>
+              </ul>
+            </div>
+          </div>
+          <h2 className="text-3xl font-medium mt-12">
+            What types of light pollution are there?
+          </h2>
+          <div className="grid grid-cols- gap-4">
+            <div className="flex flex-col justify-center">
+              <h3 className="font-bold text-lg">
+                <MdFlare className="inline mr-2" />
+                Glare Light
+              </h3>
+              <p>
+                <strong>Causes</strong>: Unshielded lighting
+              </p>
+              <p>
+                <strong>Effects</strong>: Temporary blindness, unsafe driving
+                conditions
+              </p>
+              <p>
+                <strong>Examples</strong>: Street lights, car headlights
+              </p>
+            </div>
+            <div className="flex flex-col justify-center">
+              <h3 className="font-bold text-lg">
+                <MdLight className="inline mr-2" />
+                Light Trespass
+              </h3>
+              <p>
+                <strong>Causes</strong>: Unwanted light entering someone's home
+              </p>
+              <p>
+                <strong>Effects</strong>: Difficulty sleeping
+              </p>
+              <p>
+                <strong>Examples</strong>: Street lights shining into a window
+                at night
+              </p>
+            </div>
+            <div className="flex flex-col justify-center">
+              <h3 className="font-bold text-lg">
+                <MdLightMode className="inline mr-2" />
+                Skyglow
+              </h3>
+              <p>
+                <strong>Causes</strong>: Culmination of upward-facing,
+                unshielded light
+              </p>
+              <p>
+                <strong>Effects</strong>: A glowing effect in the sky,
+                obstructing view of the stars
+              </p>{" "}
+              <p>
+                <strong>Examples</strong>:
+              </p>
+            </div>
+          </div>
+          <p></p>
         </div>
       </section>
       <section className="my-36 px-16">
@@ -106,12 +173,17 @@ export default function Index() {
               Over the past 18 years, contributors have submitted 291,306 light
               pollution observations.
             </p>
-            <p>
+            <p className="mb-4">
               The globe <span className="hidden lg:inline">to the right</span>
               <span className="lg:hidden">below</span> displays a random sample
               of observations. Drag to pan the camera, and pinch or scroll to
               zoom.
             </p>
+            <Link to="/data">
+              <button className="font-mono uppercase bg-white border hover:bg-gray-200 transition-colors px-4 py-2 text-black">
+                More Visualizations
+              </button>
+            </Link>
           </div>
           <div className="max-lg:mx-2 overflow-hidden">
             <EarthViz>
