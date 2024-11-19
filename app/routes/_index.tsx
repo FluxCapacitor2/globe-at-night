@@ -27,6 +27,13 @@ export const meta: MetaFunction = () => {
 const Earth = lazy(async () => await import("~/components/Earth"));
 
 export default function Index() {
+  useEffect(() => {
+    const el = document.getElementById(window.location.hash.substring(1));
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
+
   return (
     <>
       <section className="h-screen relative overflow-hidden">
@@ -197,7 +204,10 @@ export default function Index() {
           </div>
         </div>
       </section>
-      <section className="grid md:grid-cols-2 px-16 my-36" id="what-can-you-do">
+      <section
+        className="grid md:grid-cols-2 gap-16 px-16 my-36"
+        id="what-can-you-do"
+      >
         <div>
           <h2 className="text-6xl font-bold mb-4">What Can You Do?</h2>
           <p>
