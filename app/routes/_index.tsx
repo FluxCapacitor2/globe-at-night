@@ -9,7 +9,7 @@ import {
   MdLightMode,
 } from "react-icons/md";
 import { getObservations } from "~/data";
-import milkyWayFromEarth from "/des-recits-2O18Tz8QidM-unsplash.jpg?url";
+import milkyWayFromEarth from "/darkened-des-recits-2O18Tz8QidM-unsplash.jpg?url";
 import globeVizPreview from "/globe-viz-preview.png?url";
 import earthFromSpace from "/nasa-Q1p7bh3SHj8-unsplash.jpg?url";
 
@@ -149,16 +149,24 @@ export default function Index() {
           <h1 className="text-white text-6xl font-bold">
             A Citizen Science Project
           </h1>
-          <p>
-            Points to cover here (expand and add images; write for a general
-            audience):
-          </p>
           <ul>
-            <li>What is citizen science?</li>
-            <li>Can anyone contribute?</li>
-            <li>How can I get involved?</li>
-            <li>What problems have been solved with citizen science?</li>
-            <li>What other citizen science projects are there?</li>
+            <li>
+              Citizen Science projects are scientific research projects that
+              anyone can contribute to.
+            </li>
+            <li>
+              They allow scientists to tackle scientific research that they
+              don't have the time or resources to do themselves.
+            </li>
+            <li>
+              <strong>Globe At Night</strong> is a citizen science project that
+              focuses on recording light pollution around the world.
+            </li>
+            <li>
+              To participate, visit the{" "}
+              <a href="https://globeatnight.org/">Globe At Night website</a>,
+              follow the steps to record data, and then submit it.
+            </li>
           </ul>
         </div>
       </section>
@@ -190,16 +198,37 @@ export default function Index() {
         </div>
       </section>
       <section className="grid md:grid-cols-2 px-16 my-36">
-        <h2 className="text-6xl font-bold mb-4">
-          Why is Minimizing Light Pollution Important?
-        </h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo
-          placeat quod similique. Dolorum laudantium quos architecto vel velit
-          quidem accusantium et placeat, aut laboriosam modi aliquam autem quia?
-          Odit, quas?
-        </p>
-        <div>(image here)</div>
+        <div>
+          <h2 className="text-6xl font-bold mb-4">What Can You Do?</h2>
+          <p>
+            Reducing light pollution is a global problem, but you can enact
+            change right now in your community.
+          </p>
+        </div>
+        <div>
+          <ul className="grid grid-cols-3 gap-4">
+            <li>
+              Raise awareness for this issue and the negative impacts that it
+              has.
+            </li>
+            <li>
+              Implement “smart” lighting with motion sensors to make sure light
+              is only being used when needed.
+            </li>
+            <li>
+              Minimize the use of decorative lighting and turn it off when not
+              in use.
+            </li>
+            <li>
+              Shield lighting so that it is focused where it is needed and does
+              not pollute the night sky.
+            </li>
+            <li>
+              Write to legislators to put these protocols into place in order to
+              make them more widespread.
+            </li>
+          </ul>
+        </div>
       </section>
       <section className="px-16 my-36 flex flex-col items-center justify-center">
         <h2 className="text-6xl font-bold mb-2">Look Up At The Night Sky</h2>
