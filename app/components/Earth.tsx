@@ -9,7 +9,8 @@ export default ({ data, onReady }: { data: any; onReady?: () => void }) => {
         id: row[0],
         lat: row[1],
         lng: row[2],
-        weight: parseInt(row[3]),
+        // weight: parseInt(row[3]),
+        weight: 1, // Weight the heatmap according to the number of observations; more observations = more red.
       })),
     [data]
   );

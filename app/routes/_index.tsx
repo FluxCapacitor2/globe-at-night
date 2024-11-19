@@ -50,12 +50,12 @@ export default function Index() {
           </a>
         </div>
       </section>
-      <section id="intro" className="mb-36 px-16 relative min-h-screen">
-        <img
-          src={milkyWayFromEarth}
-          className="absolute inset-0 object-cover object-bottom size-full brightness-50"
-        />
-        <div className="absolute inset-0 flex flex-col gap-4 max-w-prose mx-auto py-24">
+      <section
+        style={{ backgroundImage: `url(${milkyWayFromEarth})` }}
+        id="intro"
+        className="mb-36 px-16 relative min-h-screen bg-bottom"
+      >
+        <div className="flex flex-col gap-4 max-w-prose mx-auto py-24">
           <h1 className="text-white text-6xl font-bold">Light Pollution</h1>
           <h2 className="text-3xl font-medium mt-12">What is it?</h2>
           <p>
@@ -134,9 +134,6 @@ export default function Index() {
               <p>
                 <strong>Effects</strong>: A glowing effect in the sky,
                 obstructing view of the stars
-              </p>{" "}
-              <p>
-                <strong>Examples</strong>:
               </p>
             </div>
           </div>
@@ -168,10 +165,10 @@ export default function Index() {
       <section className="flex min-h-screen items-center justify-center">
         <div className="grid lg:grid-cols-2">
           <div className="px-16 mb-16">
-            <h2 className="text-6xl font-bold">Explore the Data</h2>
+            <h2 className="text-6xl font-bold mb-4">Explore the Data</h2>
             <p>
-              Over the past 18 years, contributors have submitted 291,306 light
-              pollution observations.
+              Over the past <strong>18 years</strong>, contributors have
+              submitted <strong>291,306</strong> light pollution observations.
             </p>
             <p className="mb-4">
               The globe <span className="hidden lg:inline">to the right</span>
