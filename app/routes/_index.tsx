@@ -197,7 +197,7 @@ export default function Index() {
           </div>
         </div>
       </section>
-      <section className="grid md:grid-cols-2 px-16 my-36">
+      <section className="grid md:grid-cols-2 px-16 my-36" id="what-can-you-do">
         <div>
           <h2 className="text-6xl font-bold mb-4">What Can You Do?</h2>
           <p>
