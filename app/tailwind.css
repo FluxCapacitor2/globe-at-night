@@ -22,7 +22,7 @@ a {
   @apply underline font-medium;
 }
 
-ul > li {
+ul:not(.list-none) > li {
   list-style: disc;
   margin-inline-start: 1rem;
 }

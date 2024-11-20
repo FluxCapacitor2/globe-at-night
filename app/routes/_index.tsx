@@ -1,5 +1,4 @@
 import type { MetaFunction } from "@remix-run/node";
-import { Link } from "@remix-run/react";
 import { lazy, useEffect, useState, type ReactNode } from "react";
 import {
   MdCrueltyFree,
@@ -7,10 +6,12 @@ import {
   MdGroups,
   MdLight,
   MdLightMode,
+  MdOutlineLightMode,
 } from "react-icons/md";
 import { getObservations } from "~/data";
 import milkyWayFromEarth from "/darkened-des-recits-2O18Tz8QidM-unsplash.jpg?url";
 import globeVizPreview from "/globe-viz-preview.png?url";
+import nightSky from "/mxi-art-id0A-td1JBk-unsplash.jpg?url";
 import earthFromSpace from "/nasa-Q1p7bh3SHj8-unsplash.jpg?url";
 
 export const meta: MetaFunction = () => {
@@ -48,9 +49,21 @@ export default function Index() {
           <p className="max-w-prose text-balance text-center">
             A citizen science project mapping light pollution across the globe.
             View the project's official website{" "}
-            <a href="https://globeatnight.org/">here</a>.
+            <a href="https://globeatnight.org/" target="_blank">
+              here
+            </a>
+            .
           </p>
-          <a href="#intro" className="max-w-max">
+          <a
+            href="#intro"
+            className="max-w-max"
+            onClick={(e) => {
+              e.preventDefault();
+              document
+                .getElementById("intro")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
             <button className="font-mono uppercase bg-white border hover:bg-gray-200 transition-colors px-4 py-2 text-black">
               Explore
             </button>
@@ -147,13 +160,13 @@ export default function Index() {
           <p></p>
         </div>
       </section>
-      <section className="my-36 px-16">
+      <section className="mt-36 mb-72 px-16">
         {/* <img
           src={milkyWayFromEarth}
           className="absolute inset-0 object-cover"
         /> */}
-        <div className="flex flex-col gap-4">
-          <h1 className="text-white text-6xl font-bold">
+        <div className="flex flex-col gap-4 max-w-prose mx-auto">
+          <h1 className="text-white text-6xl font-bold mb-4">
             A Citizen Science Project
           </h1>
           <ul>
@@ -179,23 +192,42 @@ export default function Index() {
       </section>
       <section className="flex min-h-screen items-center justify-center">
         <div className="grid lg:grid-cols-2">
-          <div className="px-16 mb-16">
+          <div className="px-16 mb-16 max-w-prose">
             <h2 className="text-6xl font-bold mb-4">Explore the Data</h2>
+            <p className="mb-2">
+              Globe At Night collects observations in the form of{" "}
+              <strong>limiting magnitude</strong> values. Limiting magnitude is
+              a logaritmic scale from 0 to 7 representing how bright stars at a
+              certain distance appear to us, with 0 representing nearly no
+              visibility and 7 representing nearly perfect visibility for the
+              constellations that the project observes.
+            </p>
             <p>
               Over the past <strong>18 years</strong>, contributors have
               submitted <strong>291,306</strong> light pollution observations.
-            </p>
-            <p className="mb-4">
               The globe <span className="hidden lg:inline">to the right</span>
               <span className="lg:hidden">below</span> displays a random sample
-              of observations. Drag to pan the camera, and pinch or scroll to
-              zoom.
+              of 1,000 observations from the 2010s. Drag to pan the camera, and
+              pinch or scroll to zoom.
             </p>
-            <Link to="/data">
-              <button className="font-mono uppercase bg-white border hover:bg-gray-200 transition-colors px-4 py-2 text-black">
-                More Visualizations
-              </button>
-            </Link>
+            <div className="grid grid-cols-2 gap-16 mt-24">
+              <div className="text-center">
+                <p className="text-4xl font-bold">16</p>
+                <p>Constellations Monitored</p>
+              </div>
+              <div className="text-center">
+                <p className="text-4xl font-bold">3.32</p>
+                <p>Average Limiting Magnitude</p>
+              </div>
+              <div className="text-center">
+                <p className="text-4xl font-bold">14,043</p>
+                <p>Observations Per Year</p>
+              </div>
+              <div className="text-center">
+                <p className="text-4xl font-bold">1.66%</p>
+                <p>Observations with Perfect Visibility</p>
+              </div>
+            </div>
           </div>
           <div className="max-lg:mx-2 overflow-hidden">
             <EarthViz>
@@ -204,45 +236,78 @@ export default function Index() {
           </div>
         </div>
       </section>
-      <section
-        className="grid md:grid-cols-2 gap-16 px-16 my-36"
-        id="what-can-you-do"
-      >
-        <div>
-          <h2 className="text-6xl font-bold mb-4">What Can You Do?</h2>
-          <p>
-            Reducing light pollution is a global problem, but you can enact
-            change right now in your community.
-          </p>
-        </div>
-        <div>
-          <ul className="grid grid-cols-3 gap-4">
-            <li>
-              Raise awareness for this issue and the negative impacts that it
-              has.
-            </li>
-            <li>
-              Implement “smart” lighting with motion sensors to make sure light
-              is only being used when needed.
-            </li>
-            <li>
-              Minimize the use of decorative lighting and turn it off when not
-              in use.
-            </li>
-            <li>
-              Shield lighting so that it is focused where it is needed and does
-              not pollute the night sky.
-            </li>
-            <li>
-              Write to legislators to put these protocols into place in order to
-              make them more widespread.
-            </li>
-          </ul>
-        </div>
+      <section id="what-can-you-do" className="flex flex-col px-16 my-36">
+        <h2 className="text-6xl font-bold mb-4">What Can You Do?</h2>
+        <p className="mb-8">
+          Reducing light pollution is a global problem, but you can enact change
+          right now in your community.
+        </p>
+        <div className="h-full w-1 bg-white" />
+        <ul className="list-none grid grid-cols-2 gap-8">
+          <li className="flex items-center gap-4">
+            <div className="bg-white rounded-full size-8 flex-shrink-0 flex items-center justify-center text-black">
+              <MdOutlineLightMode />
+            </div>
+            <span>
+              <strong>Raise awareness</strong> for this issue and the negative
+              impacts that it has.
+            </span>
+          </li>
+          <li className="flex items-center gap-4">
+            <div className="bg-white rounded-full size-8 flex-shrink-0 flex items-center justify-center text-black">
+              <MdOutlineLightMode />
+            </div>
+            <span>
+              <strong>Implement “smart” lighting</strong> with motion sensors to
+              make sure light is only being used when needed.
+            </span>
+          </li>
+          <li className="flex items-center gap-4">
+            <div className="bg-white rounded-full size-8 flex-shrink-0 flex items-center justify-center text-black">
+              <MdOutlineLightMode />
+            </div>
+            <span>
+              <strong>Minimize</strong> the use of decorative lighting and turn
+              it off when not in use.
+            </span>
+          </li>
+          <li className="flex items-center gap-4">
+            <div className="bg-white rounded-full size-8 flex-shrink-0 flex items-center justify-center text-black">
+              <MdOutlineLightMode />
+            </div>
+            <span>
+              <strong>Shield lighting</strong> so that it is focused where it is
+              needed and does not pollute the night sky.
+            </span>
+          </li>
+          <li className="flex items-center gap-4">
+            <div className="bg-white rounded-full size-8 flex-shrink-0 flex items-center justify-center text-black">
+              <MdOutlineLightMode />
+            </div>
+            <span>
+              <strong>Write to legislators</strong> to put these protocols into
+              place in order to make them more widespread.
+            </span>
+          </li>
+          <li className="flex items-center gap-4">
+            <div className="bg-white rounded-full size-8 flex-shrink-0 flex items-center justify-center text-black">
+              <MdOutlineLightMode />
+            </div>
+            <span>
+              <strong>
+                <a href="https://app.globeatnight.org/">Make an observation</a>
+              </strong>{" "}
+              to contribute to Globe At Night's citizen science dataset.
+            </span>
+          </li>
+        </ul>
       </section>
-      <section className="px-16 my-36 flex flex-col items-center justify-center">
-        <h2 className="text-6xl font-bold mb-2">Look Up At The Night Sky</h2>
-        <p className="mb-4">
+      <section
+        className="px-16 mt-36 flex flex-col items-center justify-center py-48 relative"
+        style={{ backgroundImage: `url(${nightSky})` }}
+      >
+        <h2 className="text-6xl font-bold mb-4">Look Up At The Night Sky</h2>
+        <p className="mb-8">
           Support the Globe At Night project by recording your own observation.
         </p>
         <a href="https://app.globeatnight.org/" className="max-w-max">
@@ -258,10 +323,12 @@ export default function Index() {
 function EarthViz({ children }: { children: ReactNode }) {
   const [obs, setObs] = useState<any | undefined>();
   const [load, setLoad] = useState(false);
+  const [building, setBuilding] = useState(false);
 
   useEffect(() => {
     if (load && !obs) {
       getObservations().then(setObs);
+      setBuilding(true);
     }
   }, [load]);
 
@@ -277,7 +344,7 @@ function EarthViz({ children }: { children: ReactNode }) {
         <div className="absolute inset-4 flex flex-col items-center justify-end">
           <div className="bg-white text-black rounded-md p-4">
             <p className="mb-2">
-              Loading this visualization will download a lot of data.
+              Loading this visualization will download 36 MB of data.
             </p>
             {!load ? (
               <>
@@ -291,7 +358,7 @@ function EarthViz({ children }: { children: ReactNode }) {
             ) : (
               <p className="items-center">
                 <div className="inline-block border-t-blue-500 border-b-blue-500 border-transparent rounded-full animate-spin size-4 border-2 mr-2" />
-                Loading visualization...
+                {building ? "Building visualization..." : "Loading data..."}
               </p>
             )}
           </div>
