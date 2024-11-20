@@ -1,14 +1,17 @@
 import type { MetaFunction } from "@remix-run/node";
 import { lazy, useEffect, useState, type ReactNode } from "react";
 import {
+  MdArrowDownward,
   MdCrueltyFree,
   MdFlare,
   MdGroups,
   MdLight,
   MdLightMode,
+  MdOpenInNew,
   MdOutlineLightMode,
 } from "react-icons/md";
 import { getObservations } from "~/data";
+import telescope from "/akbar-nemati-C74Egy7es14-unsplash.jpg?url";
 import milkyWayFromEarth from "/darkened-des-recits-2O18Tz8QidM-unsplash.jpg?url";
 import globeVizPreview from "/globe-viz-preview.png?url";
 import nightSky from "/mxi-art-id0A-td1JBk-unsplash.jpg?url";
@@ -43,7 +46,7 @@ export default function Index() {
           className="absolute inset-0 size-full object-cover max-sm:brightness-50"
         />
         <div className="absolute inset-0 sm:bottom-2/3 flex items-center justify-center flex-col gap-4 p-8">
-          <h1 className="text-white text-center md:text-start text-6xl sm:text-7xl md:text-9xl font-black">
+          <h1 className="text-white text-center md:text-start text-6xl sm:text-7xl lg:text-9xl font-black">
             Globe At Night
           </h1>
           <p className="max-w-prose text-balance text-center">
@@ -65,7 +68,7 @@ export default function Index() {
             }}
           >
             <button className="font-mono uppercase bg-white border hover:bg-gray-200 transition-colors px-4 py-2 text-black">
-              Explore
+              Explore <MdArrowDownward className="inline" />
             </button>
           </a>
         </div>
@@ -73,7 +76,7 @@ export default function Index() {
       <section
         style={{ backgroundImage: `url(${milkyWayFromEarth})` }}
         id="intro"
-        className="mb-36 px-16 relative min-h-screen bg-bottom"
+        className="mb-36 px-4 md:px-16 relative min-h-screen bg-bottom"
       >
         <div className="flex flex-col gap-4 max-w-prose mx-auto py-24">
           <h1 className="text-white text-6xl font-bold">Light Pollution</h1>
@@ -83,7 +86,7 @@ export default function Index() {
             or obtrusive artificial (usually outdoor) light."
           </p>
           <h2 className="text-3xl font-medium mt-12">What is its impact?</h2>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid sm:grid-cols-2 gap-4">
             <div className="flex flex-col justify-center">
               <h3 className="font-bold text-lg">
                 <MdGroups className="inline -ml-2 mr-2" />
@@ -160,15 +163,12 @@ export default function Index() {
           <p></p>
         </div>
       </section>
-      <section className="mt-36 mb-72 px-16">
-        {/* <img
-          src={milkyWayFromEarth}
-          className="absolute inset-0 object-cover"
-        /> */}
+      <section className="mt-36 mb-72 px-4 md:px-16 grid lg:grid-cols-2 items-center gap-16">
+        <img src={telescope} className="rounded-3xl" />
         <div className="flex flex-col gap-4 max-w-prose mx-auto">
-          <h1 className="text-white text-6xl font-bold mb-4">
+          <h2 className="text-4xl sm:text-6xl font-bold mb-4">
             A Citizen Science Project
-          </h1>
+          </h2>
           <ul>
             <li>
               Citizen Science projects are scientific research projects that
@@ -192,8 +192,10 @@ export default function Index() {
       </section>
       <section className="flex min-h-screen items-center justify-center">
         <div className="grid lg:grid-cols-2">
-          <div className="px-16 mb-16 max-w-prose">
-            <h2 className="text-6xl font-bold mb-4">Explore the Data</h2>
+          <div className="px-4 md:px-16 mb-16 max-w-prose">
+            <h2 className="text-4xl sm:text-6xl font-bold mb-4">
+              Explore the Data
+            </h2>
             <p className="mb-2">
               Globe At Night collects observations in the form of{" "}
               <strong>limiting magnitude</strong> values. Limiting magnitude is
@@ -236,14 +238,19 @@ export default function Index() {
           </div>
         </div>
       </section>
-      <section id="what-can-you-do" className="flex flex-col px-16 my-36">
-        <h2 className="text-6xl font-bold mb-4">What Can You Do?</h2>
+      <section
+        id="what-can-you-do"
+        className="flex flex-col px-4 md:px-16 my-36"
+      >
+        <h2 className="text-4xl sm:text-6xl font-bold mb-4">
+          What Can You Do?
+        </h2>
         <p className="mb-8">
           Reducing light pollution is a global problem, but you can enact change
           right now in your community.
         </p>
         <div className="h-full w-1 bg-white" />
-        <ul className="list-none grid grid-cols-2 gap-8">
+        <ul className="list-none grid md:grid-cols-2 gap-8">
           <li className="flex items-center gap-4">
             <div className="bg-white rounded-full size-8 flex-shrink-0 flex items-center justify-center text-black">
               <MdOutlineLightMode />
@@ -303,18 +310,29 @@ export default function Index() {
         </ul>
       </section>
       <section
-        className="px-16 mt-36 flex flex-col items-center justify-center py-48 relative"
+        className="px-4 md:px-16 mt-36 flex flex-col items-center justify-center py-48 relative"
         style={{ backgroundImage: `url(${nightSky})` }}
       >
-        <h2 className="text-6xl font-bold mb-4">Look Up At The Night Sky</h2>
-        <p className="mb-8">
+        <h2 className="text-4xl sm:text-6xl font-bold mb-4 text-center">
+          Look Up At The Night Sky
+        </h2>
+        <p className="mb-8 text-center">
           Support the Globe At Night project by recording your own observation.
         </p>
         <a href="https://app.globeatnight.org/" className="max-w-max">
           <button className="font-mono uppercase bg-white border hover:bg-gray-200 transition-colors px-4 py-2 text-black">
-            Record Observation
+            Record Observation <MdOpenInNew className="inline" />
           </button>
         </a>
+        <p className="absolute inset-x-0 bottom-4 text-center px-4">
+          <a href="https://github.com/FluxCapacitor2/globe-at-night">
+            Source Code
+          </a>
+          <span className="mx-2"> | </span>
+          <a href="https://github.com/FluxCapacitor2/globe-at-night?tab=readme-ov-file#acknowledgements">
+            Acknowledgements
+          </a>
+        </p>
       </section>
     </>
   );

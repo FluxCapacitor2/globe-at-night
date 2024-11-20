@@ -24,6 +24,7 @@ If I were to scale this website to a substantial number of visitors, I would pre
 - NASA (via Unsplash): https://unsplash.com/photos/photo-of-outer-space-Q1p7bh3SHj8
 - Des Récits (via Unsplash): https://unsplash.com/photos/photo-of-mountain-with-trees-during-night-2O18Tz8QidM
 - MXI Art (via Unsplash): https://unsplash.com/photos/blue-sky-with-stars-during-night-time-id0A-td1JBk
+- Akbar Nemati (via Unsplash): https://unsplash.com/photos/a-man-standing-next-to-a-telescope-looking-at-the-stars-C74Egy7es14
 - Favicon: https://globeatnight.org/static/images/favicon.ico
 
 ## Fonts
