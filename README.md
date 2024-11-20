@@ -28,4 +28,5 @@ If I were to scale this website to a substantial number of visitors, I would pre
 
 ## Fonts
 
+- Inter: https://fonts.google.com/specimen/Inter
 - Space Grotesk: https://fonts.google.com/specimen/Space+Grotesk
